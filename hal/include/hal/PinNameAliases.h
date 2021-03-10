@@ -17,8 +17,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#ifndef MBED_ARDUINO_UNO_H
-#define MBED_ARDUINO_UNO_H
+#ifndef MBED_PIN_NAME_ALIASES_H
+#define MBED_PIN_NAME_ALIASES_H
+
+#define USBTX CONSOLE_TX
+#define USBRX CONSOLE_RX
 
 #if defined (TARGET_FF_ARDUINO) || (TARGET_FF_ARDUINO_UNO)
 
@@ -94,6 +97,6 @@
 
 #endif // (TARGET_FF_ARDUINO) || (TARGET_FF_ARDUINO_UNO)
 
-#endif // MBED_ARDUINO_UNO_H
+#endif // MBED_PIN_NAME_ALIASES_H
 
 /** @}*/
