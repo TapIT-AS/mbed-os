@@ -17,6 +17,7 @@
 #ifndef STATIC_PINMAP_H
 #define STATIC_PINMAP_H
 
+#include "hal/PinNameAliases.h"
 #include "PinNames.h"
 #include "spi_api.h"
 #include "pwmout_api.h"
