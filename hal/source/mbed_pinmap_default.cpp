@@ -21,7 +21,7 @@
 #include "platform/mbed_assert.h"
 #include "device.h"
 #include "hal/serial_api.h"
-#include "hal/ArduinoUnoAliases.h"
+#include "hal/PinNameAliases.h"
 
 //*** Common form factors ***
 #if defined (TARGET_FF_ARDUINO) || (TARGET_FF_ARDUINO_UNO)
