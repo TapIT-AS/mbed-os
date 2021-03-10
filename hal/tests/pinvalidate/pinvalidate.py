@@ -314,7 +314,7 @@ def identity_assignment_check(pin_name_dict):
 def nc_assignment_check(pin_name_dict):
     invalid_items = []
     for key, val in pin_name_dict.items():
-        if re.match(r"^((LED|BUTTON)\d*|USBTX|USBRX)$", key):
+        if re.match(r"^((LED|BUTTON)\d*|CONSOLE_TX|CONSOLE_RX)$", key):
             if val == "NC":
                 message = "cannot be NC"
                 invalid_items.append(
@@ -329,7 +329,7 @@ def duplicate_assignment_check(pin_name_dict):
     invalid_items = []
 
     for key, val in pin_name_dict.items():
-        if re.match(r"^((LED|BUTTON)\d*|USBTX|USBRX)$", key):
+        if re.match(r"^((LED|BUTTON)\d*|CONSOLE_TX|CONSOLE_RX)$", key):
             if val == "NC":
                 continue
             # resolve to literal
