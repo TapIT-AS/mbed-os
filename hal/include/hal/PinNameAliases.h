@@ -20,6 +20,7 @@
 #ifndef MBED_PIN_NAME_ALIASES_H
 #define MBED_PIN_NAME_ALIASES_H
 
+/* Aliases for legacy reasons. To be removed in the next Mbed OS version */
 #define USBTX CONSOLE_TX
 #define USBRX CONSOLE_RX
 
