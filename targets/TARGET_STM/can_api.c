@@ -333,9 +333,9 @@ int can_frequency(can_t *obj, int f)
 
     uint32_t nominalPrescaler = 1;
     // !When the sample point should be lower than 50%, this must be changed to
-    // !IS_FDCAN_DATA_TSEG2(ntq/nominalPrescaler), since
+    // !IS_FDCAN_NOMINAL_TSEG2(ntq/nominalPrescaler), since
     // NTSEG2 and SJW max values are lower. For now the sample point is fix @75%
-    while (!IS_FDCAN_DATA_TSEG1(ntq / nominalPrescaler)) {
+    while (!IS_FDCAN_NOMINAL_TSEG1(ntq / nominalPrescaler)) {
         nominalPrescaler ++;
         if (!IS_FDCAN_NOMINAL_PRESCALER(nominalPrescaler)) {
             error("Could not determine good nominalPrescaler. Bad clock value\n");
@@ -1024,7 +1024,7 @@ int can_read(can_t *obj, CAN_Message *msg, int handle)
 
     msg->type = (CANType)(((uint8_t)0x02 & can->sFIFOMailBox[rxfifo_default].RIR) >> 1);
     /* Get the DLC */
-    msg->len = (uint8_t)0x0F & can->sFIFOMailBox[rxfifo_default].RDTR;
+    msg->len = ((uint8_t)0x0F & can->sFIFOMailBox[rxfifo_default].RDTR < 8) ? ((uint8_t)0x0F & can->sFIFOMailBox[rxfifo_default].RDTR) : ((uint8_t) 8);
     /* Get the FMI */
     // msg->FMI = (uint8_t)0xFF & (can->sFIFOMailBox[rxfifo_default].RDTR >> 8);
     /* Get the data field */
