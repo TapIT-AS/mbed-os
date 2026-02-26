@@ -19,11 +19,19 @@
 
 
 #if !defined(MBED_APP_START)
-  #define MBED_APP_START  MBED_ROM_START
+  #if defined(MBED_CONF_TARGET_APP_OFFSET)
+    #define MBED_APP_START  (MBED_ROM_START + MBED_CONF_TARGET_APP_OFFSET)
+  #else
+    #define MBED_APP_START  MBED_ROM_START
+  #endif
 #endif
 
 #if !defined(MBED_APP_SIZE)
-  #define MBED_APP_SIZE  MBED_ROM_SIZE
+  #if defined(FIRMWARE_MAX_SIZE)
+    #define MBED_APP_SIZE  FIRMWARE_MAX_SIZE
+  #else
+    #define MBED_APP_SIZE  MBED_ROM_SIZE
+  #endif
 #endif
 
 M_CRASH_DATA_RAM_SIZE = 0x100;
